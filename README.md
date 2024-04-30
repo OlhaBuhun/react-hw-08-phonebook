@@ -110,3 +110,11 @@ GitHub.
 3. Якщо всі кроки пройшли успішно, зібрана продакшн-версія файлів проєкту
    відправляється в гілку `gh-pages`. В іншому випадку, в лозі виконання
    скрипта буде вказано в чому проблема.
+
+
+   Install
+   1. npm i react-router-dom
+   2. npm i redux-persist
+   3. npm install axios
+   4. npm i @reduxjs/toolkit
+   5. npm i react-redux
