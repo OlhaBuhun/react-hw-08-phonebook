@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { fetchContacts } from "../redux/contacts/operations";
 import { ContactForm } from "components/ContactForm/ContactForm";
 import { Filter } from "components/Filter/Filter";
+import { Flex } from '@chakra-ui/react'
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -13,13 +14,13 @@ export default function Contacts() {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-  
+
   return (
-    <>
-      <div>{isLoading && 'Request in progress...'}</div>
+    <Flex flexDirection="column" p="30px" m='20px' gap="20px">
+      <div>{ isLoading && 'Request in progress...'}</div>
       <ContactForm />
       <Filter />
       <ContactList />
-    </>
+    </Flex>
   );
 }

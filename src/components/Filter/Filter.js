@@ -1,6 +1,7 @@
 import { useDispatch, useSelector} from "react-redux";
 import { selectFilter } from "../../redux/contacts/selectors";
 import { setFilter } from "../../redux/contacts/filtersSlice";
+import { FormLabel, Input } from "@chakra-ui/react";
 
 export const Filter = () => {
   const filter = useSelector(selectFilter);
@@ -11,15 +12,16 @@ export const Filter = () => {
     dispatch(setFilter(normalizedFilter));
   };
   return (
-    <label >
-      Find contacts by name
-      <input
-        type="text"
-        name="filter"
-        placeholder="Enter contact name"
-        value={filter}
-        onChange={handleFilter}
-      />
-    </label>
+    <FormLabel mb='12px'>Find contacts by name
+    <Input
+      type="text"
+      value={filter}
+      placeholder="Enter contact name"
+      variant="filled"
+      bg="#f0eafb"
+      boxShadow='dark-lg'
+      onChange={handleFilter}
+    />
+    </FormLabel>
   );
 };

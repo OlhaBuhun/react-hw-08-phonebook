@@ -118,3 +118,6 @@ GitHub.
    3. npm install axios
    4. npm i @reduxjs/toolkit
    5. npm i react-redux
+   6. npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
+   7. npm i @chakra-ui/icons
+   8. npm i react-icons

@@ -1,31 +1,56 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
+import { Button, FormLabel, Input } from '@chakra-ui/react';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = evt => {
-    evt.preventDefault();
-    const form = evt.currentTarget;
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(event);
+    const form = event.target;
     dispatch(
       logIn({
-        email: form.elements.email.value,
-        password: form.elements.password.value,
+        email: event.target[0].value,
+        password: event.target[1].value,
       })
     );
     form.reset();
   };
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
-      <label>
+      <FormLabel m="12px">
         Email
-        <input type="email" name="email" />
-      </label>
-      <label>
+        <Input type="email" placeholder="email" variant="filled" bg="#f0eafb" />
+      </FormLabel>
+      <FormLabel m="12px">
         Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Log In</button>
+        <Input
+          type="password"
+          placeholder="password"
+          variant="filled"
+          bg="#f0eafb"
+        />
+      </FormLabel>
+      <Button
+        type="submit"
+        colorScheme="purple"
+        variant="solid"
+        size="sm"
+        m="12px"
+        _hover={{ bg: '#808000' }}
+        _active={{
+          bg: '#dddfe2',
+          transform: 'scale(0.98)',
+          borderColor: '#bec3c9',
+        }}
+        _focus={{
+          boxShadow:
+            '0 0 1px 2px rgba(88, 144, 255, .75), 0 1px 1px rgba(0, 0, 0, .15)',
+        }}
+      >
+        Log In
+      </Button>
     </form>
   );
 };
