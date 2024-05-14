@@ -1,14 +1,12 @@
 import {  useDispatch, useSelector } from "react-redux"
 import { addContact } from "../../redux/contacts/operations";
 import { selectAllContacts } from "../../redux/contacts/selectors";
-import { Button, FormLabel, Input, Text,} from "@chakra-ui/react";
-// import { CheckIcon, PhoneIcon } from "@chakra-ui/icons";
-// import { Form } from "react-router-dom";
-// import { PiBookOpenTextFill } from 'react-icons/pi';
+import { Button, Input, Text, useToast} from "@chakra-ui/react";
 
 export const ContactForm = () => {
   const contacts = useSelector(selectAllContacts);
   const dispatch = useDispatch();
+  const toast = useToast()
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -17,14 +15,16 @@ export const ContactForm = () => {
     const formPhone = event.target[1].value;
 
     if (contacts.some(({ name }) => name === formName)) {
-      console.log('not name');
+      toast({
+        title: 'Warning!',
+        description: 'This contact is already there.',
+        status: 'warning',
+        duration: 9000,
+        isClosable: true,
+      });
       return form.reset();
     }
 
-    if (contacts.some(({ number }) => number === formPhone)) {
-      console.log('not phone');
-      return form.reset();
-    }
     dispatch(addContact({ name: formName, number: formPhone }));
     form.reset();
   };
@@ -34,28 +34,24 @@ export const ContactForm = () => {
       <Text fontSize='22px'>
         Add a contact
       </Text>
-      <FormLabel mb="12px">
-        Name
         <Input
           type="text"
           value={contacts.name}
-          placeholder="name"
+          placeholder="Name"
           variant="filled"
           bg="#f0eafb"
           boxShadow='dark-lg'
+          mb='12px'
         />
-      </FormLabel>
-      <FormLabel mb="12px">
-        Number
         <Input
           type="tel"
           value={contacts.number}
-          placeholder="phone number"
+          placeholder="Phone number"
           variant="filled"
           bg="#f0eafb"
           boxShadow='dark-lg'
+          mb='12px'
         />
-      </FormLabel>
       <Button
         type="submit"
         colorScheme="purple"

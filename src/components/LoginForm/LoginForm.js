@@ -7,7 +7,6 @@ export const LoginForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(event);
     const form = event.target;
     dispatch(
       logIn({
@@ -21,7 +20,13 @@ export const LoginForm = () => {
     <form onSubmit={handleSubmit} autoComplete="off">
       <FormLabel m="12px">
         Email
-        <Input type="email" placeholder="email" variant="filled" bg="#f0eafb" />
+        <Input
+          type="email"
+          placeholder="email"
+          variant="filled"
+          bg="#f0eafb"
+          boxShadow="dark-lg"
+        />
       </FormLabel>
       <FormLabel m="12px">
         Password
@@ -30,6 +35,7 @@ export const LoginForm = () => {
           placeholder="password"
           variant="filled"
           bg="#f0eafb"
+          boxShadow="dark-lg"
         />
       </FormLabel>
       <Button

@@ -8,7 +8,6 @@ export const Navigation = () => {
   return (
     <nav>
       <Flex gap="30px">
-        {/* <NavLink to="/">Home</NavLink> */}
         <Link
           as={NavLink}
           fontWeight="700"

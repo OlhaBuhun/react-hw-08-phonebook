@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
-import { MdCheckCircle } from 'react-icons/md'
 import { Box, Button, Flex, Icon, Text } from '@chakra-ui/react'
 import { deleteContact } from "../../redux/contacts/operations";
+import { FaFaceGrinStars } from "react-icons/fa6";
 
 export const Contact = ({ contact }) => {
   const dispatch = useDispatch();
@@ -11,9 +11,20 @@ export const Contact = ({ contact }) => {
   };
 
   return (
-    <Box maxW="1200px" bg="#f0eafb" borderRadius='6px' boxShadow='dark-lg'>
-      <Flex justifyContent='space-between' alignItems="center" gap="12px" ml='6px'>
-        <Icon as={MdCheckCircle} color="purple.500" w="22px" h="22px" />
+    <Box
+      maxW="1200px"
+      bg="#f0eafb"
+      borderRadius="6px"
+      boxShadow="dark-lg"
+      p="5px"
+    >
+      <Flex
+        justifyContent="space-between"
+        alignItems="center"
+        gap="12px"
+        ml="6px"
+      >
+        <Icon as={FaFaceGrinStars} color="purple.500" w="22px" h="22px" />
         <Text fontSize="16px">
           {contact.name}: {contact.number}
         </Text>
@@ -21,7 +32,7 @@ export const Contact = ({ contact }) => {
           colorScheme="purple"
           variant="solid"
           size="sm"
-          _hover={{ bg: '#808000', }}
+          _hover={{ bg: '#808000' }}
           _active={{
             bg: '#dddfe2',
             transform: 'scale(0.98)',

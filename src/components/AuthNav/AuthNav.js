@@ -4,8 +4,6 @@ import { NavLink } from "react-router-dom"
 export const AuthNav = () => {
   return (
     <div>
-      {/* <NavLink to="/register">Register</NavLink>
-      <NavLink to="/login">Log In</NavLink> */}
       <Flex gap="30px">
         <Link
           as={NavLink}

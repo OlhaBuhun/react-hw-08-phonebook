@@ -7,7 +7,6 @@ import {
   Box,
   Text,
 } from '@chakra-ui/react';
-// import { CheckCircleIcon } from '@chakra-ui/icons';
 
 export const ContactList = () => {
   const contacts = useSelector(selectVisibleContacts);

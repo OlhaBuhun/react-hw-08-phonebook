@@ -16,10 +16,10 @@ export default function Contacts() {
   }, [dispatch]);
 
   return (
-    <Flex flexDirection="column" p="30px" m='20px' gap="20px">
+    <Flex flexDirection="column" p="30px"  gap="20px">
       <div>{ isLoading && 'Request in progress...'}</div>
-      <ContactForm />
       <Filter />
+      <ContactForm />
       <ContactList />
     </Flex>
   );
